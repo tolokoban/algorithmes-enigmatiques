@@ -10,5 +10,5 @@ Par exemple, 18 pièces peuvent résoudre le problème : 1, 2, 3, 4, 5, 6, 7, 8,
 
 Mais vous pouvez faire bien mieux que ça en utilisant moins de pièces.
 
-[Solution|monnaie-du-roy.md]
+[Solution](monnaie-du-roy.md)
 
