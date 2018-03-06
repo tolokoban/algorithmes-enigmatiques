@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 import math
+import time
 import random
 
 def createCandidate( size, m ):
@@ -45,7 +46,7 @@ def improve(coins, m):
         return None
     else:
         bestCandidate.sort()
-        return (bestCandidate, math.floor(bestScore))
+        return (bestCandidate, bestScore)
 
 def getWhatIsMissing(coins, m):
     result = []
@@ -78,16 +79,12 @@ def solve(q=17, m=99):
     champion = candidate[0]
     print( champion )
 
-
-
-def test_improve():
-    for loop in range(10):
-        candidate = createCandidate(18, 99)
-        improved = improve( candidate[0], 99 )
-        print("-"*60)
-        print(candidate)
-        print(improved)
-        sys.stdout.flush()
-
+start_time = time.time()
 solve( 16, 99 )
-#test_improve()
+
+t = time.time() - start_time
+ss = t % 60
+mm = math.floor((t - ss) / 60)
+hh = math.floor(mm / 60)
+mm = mm % 60
+print("\nFound in", hh, "H", mm, "M", ss, "S")

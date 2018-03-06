@@ -99,8 +99,7 @@ void main() {
 Personne ne nous impose d'obtenir TOUTES les solutions du problème, c'est pourquoi nous pouvons utiliser un algorithme plus rapide qui va se contenter de retourner la première solution qu'il trouve pour un nombre donné de pièces.
 
 Sur une machine correcte de 2018, avec l'algorithme en Python, il trouve la solution suivante en cinq minutes environ : __1, 3, 4, 5, 8, 14, 20, 26, 32, 38, 41, 45, 46, 48, 49, 85__.
-
-Mais en théorie, il peut très bien tourner des semaines sans rien trouver.
+Mais parfois, il lui faut plusieurs heures. Mais dans tous nos tests, il est toujours resté sous l'heure.
 
 Le principe est le suivant :
 * On génère un ensemble de 16 pièces dont la première est __1__ et les autres sont prises aléatoirement.
@@ -112,7 +111,7 @@ possible d'atteindre avec au plus deux de ces pièces.
 * Sinon, on prend au hasard une valeur qu'on ne peut atteindre avec deux pièces et on remplace une de nos pièces (sauf la première qui reste toujours __1__) par cette valeur.
 * Et on boucle.
 
-ON ajoute aussi un mécanisme qui permet de recommencer avec un tirage aléatoire si le score est redescendu au moins 100 fois.
+On ajoute aussi un mécanisme qui permet de recommencer avec un tirage aléatoire si le score est redescendu au moins 100 fois.
 
 ### En Python
 
