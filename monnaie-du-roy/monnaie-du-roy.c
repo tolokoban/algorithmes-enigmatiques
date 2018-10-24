@@ -8,37 +8,32 @@ void printSolution( int* coins, int size ) {
   printf( "\n" );
 }
 
-int isMissing( int n, int* coins, int size ) {
+int isFine( int n, int* coins, int size ) {
   int iA, iB, a, b;
   for( iA = 0 ; iA < size ; iA++ ) {
     a = coins[iA];
-    if( a == n ) return 0;
+    if( a == n ) return 1;
     for( iB = iA ; iB < size ; iB++ ) {
       b = coins[iB];
-      if( a + b == n ) return 0;
+      if( a + b == n ) return 1;
     }
   }
-  return 1;
+  return 0;
 }
 
 int f( int n, int maxN, int* coins, int size, int best ) {
+  if( size > best ) return best;
   if( n > maxN ) {
     if( size <= best ) {
       printSolution( coins, size );
       return size;
-    } else {
-      return best;
-    }
+  }  
+  coins[size] = n;
+  if( isFine( n, coins, size ) ) {
+    best = f( n + 1, maxN, coins, size, best );  
   }
-  if( isMissing( n, coins, size ) ) {
-    coins[size] = n;
-    best = f( n + 1, maxN, coins, size + 1, best );
-  } else {
-    coins[size] = n;
-    best = f( n + 1, maxN, coins, size + 1, best );
-    int best2 = f( n + 1, maxN, coins, size, best );
-    if( best2 < best ) best = best2;
-  }
+  coins[size] = n;
+  best = f( n + 1, maxN, coins, size + 1, best );  
   return best;
 }
 
