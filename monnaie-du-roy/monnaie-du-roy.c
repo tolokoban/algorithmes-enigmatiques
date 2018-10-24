@@ -34,9 +34,9 @@ int f( int n, int maxN, int* coins, int size, int best ) {
     coins[size] = n;
     best = f( n + 1, maxN, coins, size + 1, best );
   } else {
-    best = f( n + 1, maxN, coins, size, best );
     coins[size] = n;
-    int best2 = f( n + 1, maxN, coins, size + 1, best );
+    best = f( n + 1, maxN, coins, size + 1, best );
+    int best2 = f( n + 1, maxN, coins, size, best );
     if( best2 < best ) best = best2;
   }
   return best;
@@ -44,6 +44,6 @@ int f( int n, int maxN, int* coins, int size, int best ) {
 
 void main() {
   int coins[18];
-  int best = f( 1, 99, coins, 0, 19 );
+  int best = f( 1, 99, coins, 0, 18 );
   printf( "\n\nBest solution found has a length of %i.\n\n", best );
 }
