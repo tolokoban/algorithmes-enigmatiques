@@ -11,3 +11,5 @@ mul("B", "B") === "C"
 mul("G", "B") === "H"
 mul("BAC", "TOTOBILL") === mul("BACAAAAA", "TOTOBILL") === "UOVOBILL"
 ```
+
+Chaque chaîne de caractère peut être considérée comme un nombre en base 26 avec le chiffre de poinds faible à gauche. 
