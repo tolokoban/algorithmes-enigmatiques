@@ -1,7 +1,13 @@
 # algorithmes-enigmatiques
-Des énigmes classiques résolue par des algorithmes
+Des énigmes classiques résolues par des algorithmes
 
-## La monnaie du Roy
+## Défis
+
+* [Calcul rapide de puissances élevées](src/main/high-power/high-power.md).
+
+## Non triées
+
+### La monnaie du Roy
 
 Enigme de Martin Gardner.
 
@@ -12,7 +18,7 @@ Mais vous pouvez faire bien mieux que ça en utilisant moins de pièces.
 
 [Solution](monnaie-du-roy.md)
 
-## Problème de Langford
+### Problème de Langford
 
 Enigme de Martin Gardner.
 

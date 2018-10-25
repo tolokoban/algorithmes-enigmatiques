@@ -1,0 +1,79 @@
+BAR^2
+FHEKW^3
+JERFHAD^7
+"use strict";
+
+const Readline = require( 'readline' );
+
+Readline.createInterface( {
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
+} ).on( 'line', processLine );
+
+
+const
+    A = "A".charCodeAt( 0 ),
+    ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+function processLine( line ) {
+    console.log( "----", line );
+    test( "DFB", "AAD" );
+}
+
+
+function mul( _a, _b ) {
+    const
+        a = _a.length < _b.length ? _b : _a,
+        b = _a.length < _b.length ? _a : _b;
+
+    let
+        radix = "",
+        result = "";
+
+    for ( let k = 0; k < b.length; k++ ) {
+        result = add( result, radix + mulByDigit( a, b.charAt( k ) ) );
+        radix += "A";
+    }
+    return result;
+}
+
+
+function mulByDigit( a, _digit ) {
+    const digit = _digit.charCodeAt( 0 ) - A;
+
+    if ( digit === 0 ) return "";
+
+    let result = "";
+    for ( let k = 0; k < a.length; k++ ) {
+        let c = a.charCodeAt( k ) - A;
+        result += ALPHABET[ ( c * digit ) % 26 ];
+    }
+
+    return result;
+}
+
+
+function add( _a, _b ) {
+    const
+        a = _a.length < _b.length ? _b : _a,
+        b = _a.length < _b.length ? _a : _b;
+
+    if ( b.length === 0 ) return a;
+
+    let result = "";
+    for ( let k = 0; k < b.length; k++ ) {
+        const
+            aa = a.charCodeAt( k ) - A,
+            bb = b.charCodeAt( k ) - A;
+        result += ALPHABET[ ( aa + bb ) % 26 ];
+    }
+
+    return result + a.substr( b.length );
+}
+
+
+function test( a, b ) {
+    console.log( a, "+", b, "=", add( a, b ) );
+}
